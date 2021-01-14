@@ -12,11 +12,10 @@ function App() {
   return (
     // 2 Crear router y switch, definiendo rutas
     <Router>
-
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route exact path="new-account" component={NewAccount} />
-        <Route exact path="projects" component={Projects} />
+        <Route exact path="/new-accountnew-account" component={NewAccount} />
+        <Route exact path="/projects" component={Projects} />
       </Switch>
     </Router>
   );
