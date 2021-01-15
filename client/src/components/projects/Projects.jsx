@@ -3,6 +3,7 @@ import React from 'react';
 import Sidebar from '../layout/Sidebar';
 import Bar from '../layout/Bar';
 import FormTarea from '../homeworks/HomeworkForm';
+import ListHomeworks from '../homeworks/ListHomeworks';
 
 const Projects = () => {
     return (
@@ -18,7 +19,7 @@ const Projects = () => {
                 <FormTarea/>
 
                 <div className="contenedor-tareas">
-
+                    <ListHomeworks/>
                 </div>
             </main>
         </div>
