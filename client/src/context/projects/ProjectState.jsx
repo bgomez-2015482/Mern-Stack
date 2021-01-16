@@ -3,9 +3,11 @@ import React, { useReducer } from 'react';
 import ProjectContext from './ProjectContext';
 import ProjectReducer from './ProjectReducer';
 
+import { FORM_PROJECT } from '../../types/index';
+
 const ProjectState = props => {
     const initialState = {
-        newProject : false
+        form : false
     }
 
     //Dispach para ejecutar las acciones
@@ -14,10 +16,17 @@ const ProjectState = props => {
 
     //Serie de funciones para el CRUD
 
+    const showForm = () => {
+        dispatch({
+            type: FORM_PROJECT
+        })
+    }
+
     return (
         <ProjectContext.Provider
             value={{
-                newProject: state.newProject
+                form: state.form,
+                showForm
             }}
         >
             {props.children}

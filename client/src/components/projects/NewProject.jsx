@@ -7,7 +7,7 @@ const NewProject = () => {
     //Obtener el state del formulario
 
     const projectsContext = useContext(ProjectContext);
-    const { newProject } = projectsContext; 
+    const { form, showForm } = projectsContext; 
 
     //state de proyecto
     const [proyecto, guardarProyecto] = useState({
@@ -44,9 +44,10 @@ const NewProject = () => {
         <button
             type="button"
             className="btn btn-block btn-primario"
+            onClick={() => showForm()}
         >Nuevo Proyecto</button>
 
-        { newProject ?
+        { form ?
                 (
                     <form
                         className="formulario-nuevo-proyecto"
