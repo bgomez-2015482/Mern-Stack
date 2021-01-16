@@ -17,7 +17,7 @@ const ProjectState = props => {
     return (
         <ProjectContext.Provider
             value={{
-                new: state.newProject
+                newProject: state.newProject
             }}
         >
             {props.children}

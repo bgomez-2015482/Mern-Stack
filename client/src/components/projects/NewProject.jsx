@@ -1,6 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
+
+import ProjectContext from '../../context/projects/ProjectContext';
 
 const NewProject = () => {
+
+    //Obtener el state del formulario
+
+    const projectsContext = useContext(ProjectContext);
+    const { newProject } = projectsContext; 
 
     //state de proyecto
     const [proyecto, guardarProyecto] = useState({
@@ -39,25 +46,29 @@ const NewProject = () => {
             className="btn btn-block btn-primario"
         >Nuevo Proyecto</button>
 
-        <form
-            className="formulario-nuevo-proyecto"
-            onSubmit={onSubmitProyecto}
-        >
-            <input
-                type="text"
-                className="input-text"
-                placeholder="Nombre Proyecto"
-                name="nombre"
-                value={nombre}
-                onChange={onChangeProyecto}
-            />
-
-            <input
-                type="submit"
-                className="btn bnt-primario btn-block"
-                value="Agregar proyecto"
-            />
-        </form>
+        { newProject ?
+                (
+                    <form
+                        className="formulario-nuevo-proyecto"
+                        onSubmit={onSubmitProyecto}
+                    >
+                        <input
+                            type="text"
+                            className="input-text"
+                            placeholder="Nombre Proyecto"
+                            name="nombre"
+                            value={nombre}
+                            onChange={onChangeProyecto}
+                        />
+        
+                        <input
+                            type="submit"
+                            className="btn bnt-primario btn-block"
+                            value="Agregar proyecto"
+                        />
+                    </form>
+                ) : null
+        }
         </Fragment>
     );
 }
