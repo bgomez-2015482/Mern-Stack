@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import ProjectContext from './ProjectContext';
 import ProjectReducer from './ProjectReducer';
 
-import { FORM_PROJECT, GET_PROJECTS, ADD_PROJECT } from '../../types';
+import { FORM_PROJECT, GET_PROJECTS, ADD_PROJECT, VALIDATE_FORM } from '../../types';
 
 
 const ProjectState = props => {
@@ -17,7 +17,8 @@ const ProjectState = props => {
     
     const initialState = {
         proyectos : [],
-        form : false
+        form : false,
+        errorFormulario: false
     }
 
     //Dispach para ejecutar las acciones
@@ -53,11 +54,20 @@ const ProjectState = props => {
         })
     }
 
+    //Validar el formulario por errores
+    const mostrarError= () => {
+        dispatch({
+            type: VALIDATE_FORM
+        })
+    }
+
     return (
         <ProjectContext.Provider
             value={{
                 proyectos: state.proyectos,
                 form: state.form,
+                errorFormulario: state.errorFormulario,
+                mostrarError,
                 showForm,
                 getProjects,
                 agregarProyecto
