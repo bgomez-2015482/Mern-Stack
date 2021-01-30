@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 const Homework = ({tarea}) => {
+
     return (
         <li className="tarea sombra">
             <p>{tarea.nombre}</p>
